@@ -1,7 +1,5 @@
-import { Component, Directive, EventEmitter, Input, Output, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-
-
 
 interface user {
   namee: string;
@@ -117,54 +115,25 @@ const INCUBATORS: incubator[] = [
 const INDUSTRIES: industry[] = [
 
   {
-    names: 'KCB Bank Group',
+    names: 'ABSA Bank Group',
     logos: 'f/f3/Flag_of_Russia.svg',
-    phones: '0709487332',
-    ideas: 'Idea description',
-    requests: 'Request description',
+    phones: '+254(732)130120',
+    ideas: 'Street Kids in Tech',
+    requests: 'Nyumba Yangu Initiative',
     dates: '1st April 2022',
-    emails: 'info@kcbbankgroup.com',
+    emails: 'absa.kenya@absa.africa',
     
-  },
-  {
-    names: 'Kenya Power',
-    logos: 'c/cf/Flag_of_Canada.svg',
-    phones: '07299285893',
-    ideas: 'Idea description',
-    requests: 'Request description',
-    dates: '18th May 2021',
-    emails: 'info@kplc.edu'
-  },
-  {
-    names: 'Kenya Airways',
-    logos: 'a/a4/Flag_of_the_United_States.svg',
-    phones: '079288472',
-    ideas: 'Idea description',
-    requests: 'Request description',
-    dates: '18th August 2021',
-    emails: 'info@kenyaairways.com'
-  },
-  {
-    names: 'KCC',
-    logos: 'f/fa/Flag_of_the_People%27s_Republic_of_China.svg',
-    phones: '0709837533',
-    ideas: 'Idea description',
-    requests: 'Request description',
-    dates: '17th September 2021',
-    emails: 'info@kcc.com'
   }
-
 
 ];
 
-
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-industry',
+  templateUrl: './industry.component.html',
+  styleUrls: ['./industry.component.scss']
 })
+export class IndustryComponent implements OnInit {
 
-export class AppComponent {
   title = 'vumbuka';
   active = 'top';
   incubators = INCUBATORS;
@@ -193,12 +162,7 @@ export class AppComponent {
     }
   }
 
-  
+  ngOnInit(): void {
+  }
 
 }
-
-
-
-
-
-

@@ -1,7 +1,5 @@
-import { Component, Directive, EventEmitter, Input, Output, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-
-
 
 interface user {
   namee: string;
@@ -42,34 +40,8 @@ const USERS: user[] = [
     requestt: 'Request description',
     datee: '12th May 2022',
     emaill: 'john.doe@vumbua.com',
-  },
-  {
-    namee: 'Joy Lyky',
-    photo: 'f/f3/Flag_of_Russia.svg',
-    phonee: '0709487332',
-    ideaa: 'Idea description',
-    requestt: 'Request description',
-    datee: '12th May 2022',
-    emaill: 'joy.lyky@vumbua.com',
-  },
-  {
-    namee: 'Daudi Kabaka',
-    photo: 'f/f3/Flag_of_Russia.svg',
-    phonee: '0709487332',
-    ideaa: 'Idea description',
-    requestt: 'Request description',
-    datee: '12th May 2022',
-    emaill: 'daudi@vumbua.com',
-  },
-  {
-    namee: 'Kim Joe',
-    photo: 'f/f3/Flag_of_Russia.svg',
-    phonee: '0709487332',
-    ideaa: 'Idea description',
-    requestt: 'Request description',
-    datee: '12th May 2022',
-    emaill: 'kim.joe@vumbua.com',
   }
+  
 ];
 
 
@@ -157,14 +129,14 @@ const INDUSTRIES: industry[] = [
 
 ];
 
-
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.scss']
 })
+export class UserComponent implements OnInit {
 
-export class AppComponent {
+
   title = 'vumbuka';
   active = 'top';
   incubators = INCUBATORS;
@@ -195,10 +167,8 @@ export class AppComponent {
 
   
 
+
+  ngOnInit(): void {
+  }
+
 }
-
-
-
-
-
-

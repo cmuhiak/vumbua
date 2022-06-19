@@ -1,0 +1,546 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Vumbua</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <a routerLink="/home" class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/home/NeedHelp?" class="nav-link" href="#">News feeds</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Postings
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+              <li><a class="dropdown-item" href="#">Personal' Postings</a></li>
+              <li><a class="dropdown-item" href="#">Incubator's' Postings</a></li>
+              <li><a class="dropdown-item" href="#">Industries' Postings</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">All Postings</a></li>
+            </ul>
+          </li>
+          
+        </ul>
+        
+        <div class="md-form mt-0">
+          <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+        </div>
+          <button class="btn btn-primary me-3" type="submit">Search</button>
+          <div>
+            <nav class="navbar navbar-expand-sm navbar-light bg-dark">
+              <div class="container-fluid">
+                <ul class="navbar-nav"> 
+                  <!-- Avatar -->
+                   <li mdbDropdown class="nav-item dropdown">
+                    <a
+                    class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                    >
+                    <a style="color: dark;">. .</a>
+                      <!-- <img
+                        src="https://worldywcacouncil.org/wp-content/uploads/2015/04/speaker-3-v2.jpg"
+                        class="rounded-circle"
+                        height="32"
+                        alt=""
+                        loading="lazy"
+                      />  <br> -->
+                      <a class="text-muted" style="font-size: 2;">Strathmore University</a>
+                    </a>
+                    <ul mdbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li>
+                        <a class="dropdown-item" href="#">My profile</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Settings</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#" routerLink="/home">Logout</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+          
+      
+        
+  
+        
+      </div>
+    </div>
+  </nav> <br>
+  
+  
+  
+  <div class="d-flex">
+      <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-pills" orientation="vertical" >
+  <li ngbNavItem="Educators">
+          <a ngbNavLink>
+            <div class="ms-3">
+              <p class="fw-bold mb-1">Hello, Welcome Strathmore University!</p>
+              <p class="text-muted mb-0">Click here to navigate</p>
+            </div>
+          </a>
+          <ng-template ngbNavContent>
+            <div>
+              
+    
+    <nav ngbNav #nav="ngbNav" class="nav-tabs">
+      <ng-container ngbNavItem>
+        <a ngbNavLink>Strathmore University Profile Details</a>
+        <ng-template ngbNavContent>
+              <div>
+    
+    
+                  <table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th scope="col">No.</th>
+                      <th scope="col">Educator's Name</th>
+                      <th scope="col">Phone Number</th>
+                      <th scope="col">Email Address</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">View</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let educator of educators; index as e">
+                      <th scope="row">{{ e + 1 }}</th>
+                      <td>
+                        
+                        {{ educator.namet }}
+                      </td>
+                      <td>{{ educator.phonet }}</td>
+                      <td>{{ educator.emailt }}</td>
+                      <td>
+                        <button type="button" class="btn btn-primary">
+                           <span class="badge badge-light">Active</span>
+                        </button>
+                      </td>
+                      <td> 
+                       
+                          <ng-template #content let-modal>
+                            <div class="modal-header">
+                              <h4 class="modal-title" id="modal-basic-title">Strathmore Uni Profile</h4>
+                              <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                            </div>
+                            <div class="modal-body">
+                              <form>
+    
+                                <img
+                                src="http://www.ilabafrica.ac.ke/wp-content/uploads/2015/05/@iBizAfrica_compact.png"
+                                class="rounded mx-auto d-block"
+                                height="92"
+                                alt=""
+                                loading="lazy"
+                              /> <br>
+                              <label>Company logo</label>
+                             
+                                <button class="btn btn-outline-primary" type="button">Upload</button>
+                              <br><br>
+    
+                                <div class="mb-3">
+                                  <label for="dateOfBirth">Date of Registration</label>
+                                  <div class="input-group">
+                                    <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                                    
+                                    <button class="btn btn-outline-primary calendar" (click)="dp.toggle()" type="button"></button>
+                                  </div>
+                                  <div>
+                                  <table>
+                                    <thead>
+                                      <tr>
+                                        <th scope="col"> </th>
+                                        <th scope="col">Item</th>
+                                        <th scope="col">Details</th>
+                                        
+    
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                      <!--tr *ngFor="let item of items; index as i">
+                                        <th scope="row">{{ i + 1 }}</th-->
+                                      <td>Ihub</td>
+                                      <td>xxx</td>
+                                      <td>xxx</td>
+                                      <td>xxx</td>
+                                      <td>xxx</td>
+                                      <td>xxx</td>
+                                      <td>xxx</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                                </div>
+                              </form>
+    
+                              <label for="formFileMultiple" class="form-label">Attach - Certificate of Incorporation</label>
+                              <div class="input-group mb-3">
+                              <input class="form-control" type="file" id="formFileMultiple" multiple />
+                              <div class="input-group-append">
+                                <button class="btn btn-outline-primary" type="button">Upload</button>
+                              </div> <br>
+                            </div>
+    
+                              <label for="formFileMultiple" class="form-label">Attach - KRA Pin Certificate</label>
+                              <div class="input-group mb-3">
+                                <input class="form-control" type="file" id="formFileMultiple" multiple />
+                                <div class="input-group-append">
+                                  <button class="btn btn-outline-primary" type="button">Upload</button>
+                                </div> <br>
+                              </div>
+    
+                              <label for="formFileMultiple" class="form-label">Attach - Company Profile</label>
+                              <div class="input-group mb-3">
+                                <input class="form-control" type="file" id="formFileMultiple" multiple />
+                                <div class="input-group-append">
+                                  <button class="btn btn-outline-primary" type="button">Upload</button>
+                                </div> <br>
+                              </div>
+    
+                              <label for="formTextMultiple" class="form-label">Add Website link</label>
+                              <div class="input-group mb-3">
+                                <input class="form-control" type="text" id="formTextMultiple" multiple>
+                                <div class="input-group-append">
+                                  <button class="btn btn-outline-primary" type="button">Add</button>
+                                </div> <br>
+                              </div> <br>
+                              
+    
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-primary" (click)="modal.close('Save click')">Edit</button><br>
+                              <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+                            </div>
+                          </ng-template>
+                          
+                          <button class="btn btn-lg btn-outline-primary" (click)="open(content)">view</button>
+     
+                          
+                    </td>
+                    </tr>
+                    </tbody>
+                  </table>
+    
+              </div>
+        </ng-template>
+      </ng-container>
+      <ng-container ngbNavItem>
+        <a ngbNavLink>Strathmore Uni's Adopted Ideas</a>
+        <ng-template ngbNavContent>
+          
+          <div>
+    
+    
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th scope="col">No.</th>
+                <th scope="col">User Name</th>
+                <th scope="col">Idea Description</th>
+                <th scope="col">Date of Submission</th>
+                <th scope="col">Email Address</th>
+                <th scope="col">Status</th>
+                <th scope="col">View</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let user of users; index as i">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ user.namee }}</td>
+                <td>{{ user.ideaa }}</td>
+                <td>{{ user.datee }}</td>
+                <td>{{ user.emaill }}</td>
+                <td>
+                  <button type="button" class="btn btn-primary">
+                     <span class="badge badge-light">Adopted</span>
+                  </button>
+                </td>
+                <td> 
+                 
+                    <ng-template #content let-modal>
+                      <div class="modal-header">
+                        <h4 class="modal-title" id="modal-basic-title">Idea Details</h4>
+                        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form>
+                          <div class="mb-3">
+                            <label for="dateOfBirth">Date of Submission</label>
+                            <div class="input-group">
+                              <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                              
+                              <button class="btn btn-outline-primary calendar" (click)="dp.toggle()" type="button"></button>
+                              
+                            </div>
+                            
+                            <div>
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th scope="col"> </th>
+                                  <th scope="col">Item</th>
+                                  <th scope="col">Details</th>
+                                  
+    
+                                </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <!--tr *ngFor="let item of items; index as i">
+                                  <th scope="row">{{ i + 1 }}</th-->
+                                <td>Ihub</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <div>
+    
+    
+                              <p>
+                                <button type="button" class="btn btn-outline-primary" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed"
+                                  aria-controls="collapseExample">
+                                  Idea Description
+                                </button>
+                              </p>
+                              <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+                                <div class="card">
+                                  <div class="card-body">
+                                    There once was a king named Midas who did a good deed for a Satyr. And he was then granted a wish by Dionysus, the god of wine.
+    
+    For his wish, Midas asked that whatever he touched would turn to gold. Despite Dionysus’ efforts to prevent it, Midas pleaded that this was a fantastic wish, and so, it was bestowed.
+                                  </div>
+                                </div>
+                              </div>
+    
+                              <p>
+                                <button type="button" class="btn btn-outline-primary" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed"
+                                  aria-controls="collapseExample">
+                                  Comment
+                                </button>
+                              </p>
+                              <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+                                <div class="card">
+                                  <div class="card-body">
+                                    <textarea>Write you comment here</textarea><br>
+                                    <button type="button" class="btn btn-outline-primary" (click)="modal.close('Save click')">Submit Comment</button>
+                                  </div>
+                                </div>
+                              </div>
+    
+                              <label for="formFileMultiple" class="form-label">Supporting documents & attachements</label>
+                              <div class="input-group mb-3">
+                                <input class="form-control" type="file" id="formFileMultiple" multiple />
+                                <div class="input-group-append">
+                                  <button class="btn btn-outline-primary" type="button">Upload</button>
+                                </div> <br>
+                              </div>
+    
+                              
+    
+                              
+                            </div>
+                          </div>
+                          </div>
+                        </form>
+                      </div>
+                      
+                      <div class="modal-footer">
+                        <div ngbDropdown>
+                          <button type="button" class="btn btn-outline-primary" id="dropdownConfig" ngbDropdownToggle>Like the idea?</button>
+                          <div ngbDropdownMenu aria-labelledby="dropdownConfig">
+                            <button ngbDropdownItem>Accept/Adopt</button>
+                            <button ngbDropdownItem>Not interested</button>
+                            <button ngbDropdownItem>Request for Reviews</button>
+                          </div>
+                        </div>
+    
+                        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Submit</button>
+                      </div>
+                    </ng-template>
+                    
+                    <button class="btn btn-lg btn-outline-primary" (click)="open(content)">view</button>
+    
+                    
+              </td>
+              </tr>
+              </tbody>
+            </table>
+    
+        </div>
+    
+    
+    
+        </ng-template>
+      </ng-container>
+      <ng-container ngbNavItem>
+        <a ngbNavLink>Strathmore Uni's Requests</a>
+        <ng-template ngbNavContent>
+          
+    
+          <div>
+    
+    
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th scope="col">No.</th>
+      
+                <th scope="col">Request Description</th>
+                <th scope="col">Date of Submission</th>
+                <th scope="col">Email Address</th>
+                <th scope="col">Status</th>
+                <th scope="col">View</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let educator of educators; index as e">
+                <th scope="row">{{ e + 1 }}</th>
+                
+                <td>{{ educator.requestt }}</td>
+                <td>{{ educator.datet }}</td>
+                <td>{{ educator.emailt }}</td>
+                <td>
+                  <button type="button" class="btn btn-primary">
+                     <span class="badge badge-light">Open</span>
+                  </button>
+                </td>
+                <td> 
+                 
+                    <ng-template #content let-modal>
+                      <div class="modal-header">
+                        <h4 class="modal-title" id="modal-basic-title">Educator's Request</h4>
+                        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form>
+                          <div class="mb-3">
+                            <label for="dateOfBirth">Date of Submission</label>
+                            <div class="input-group">
+                              <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                              
+                              <button class="btn btn-outline-primary calendar" (click)="dp.toggle()" type="button"></button>
+                              
+                            </div>
+                            
+                            <div>
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th scope="col"> </th>
+                                  <th scope="col">Item</th>
+                                  <th scope="col">Details</th>
+                                  
+    
+                                </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <!--tr *ngFor="let item of items; index as i">
+                                  <th scope="row">{{ i + 1 }}</th-->
+                                <td>Ihub</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <div>
+    
+    
+                              <p>
+                                <button type="button" class="btn btn-outline-primary" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed"
+                                  aria-controls="collapseExample">
+                                  Request Description
+                                </button>
+                              </p>
+                              <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+                                <div class="card">
+                                  <div class="card-body">
+                                    There once was a king named Midas who did a good deed for a Satyr. And he was then granted a wish by Dionysus, the god of wine.
+    
+    For his wish, Midas asked that whatever he touched would turn to gold. Despite Dionysus’ efforts to prevent it, Midas pleaded that this was a fantastic wish, and so, it was bestowed.
+                                  </div>
+                                </div>
+                              </div>
+    
+                              <p>
+                                <button type="button" class="btn btn-outline-primary" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed"
+                                  aria-controls="collapseExample">
+                                  Comment
+                                </button>
+                              </p>
+                              <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+                                <div class="card">
+                                  <div class="card-body">
+                                    <textarea>Write you comment here</textarea><br>
+                                    <button type="button" class="btn btn-outline-primary" (click)="modal.close('Save click')">Submit Comment</button>
+                                  </div>
+                                </div>
+                              </div>
+    
+                              <label for="formFileMultiple" class="form-label">Supporting documents & attachements</label>
+                              <div class="input-group mb-3">
+                                <input class="form-control" type="file" id="formFileMultiple" multiple />
+                                <div class="input-group-append">
+                                  <button class="btn btn-outline-primary" type="button">Upload</button>
+                                </div> <br>
+                              </div>
+    
+                              
+    
+                              
+                            </div>
+                          </div>
+                          </div>
+                        </form>
+                      </div>
+                      
+                      <div class="modal-footer">
+                        
+                        <button type="button" class="btn btn-outline-primary" (click)="modal.close('Save click')">Edit</button>
+                        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Submit</button>
+                      </div>
+                    </ng-template>
+                    
+                    <button class="btn btn-lg btn-outline-primary" (click)="open(content)">view</button>
+    
+                    
+              </td>
+              </tr>
+              </tbody>
+            </table>
+    
+        </div>
+    
+    
+    
+        </ng-template>
+      </ng-container>
+    </nav>
+    
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+            </div>
+          </ng-template>
+        </li>
+      </ul>
+      
+      <div [ngbNavOutlet]="nav" class="ms-4"></div>
+  </div>
+  
+  <app-footer></app-footer>
+  

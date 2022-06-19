@@ -1,7 +1,5 @@
-import { Component, Directive, EventEmitter, Input, Output, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-
-
 
 interface user {
   namee: string;
@@ -32,6 +30,18 @@ interface industry {
   dates: string;
   emails: string;
 }
+
+// -------------------------------------------------------
+
+interface investor {
+  namei: string;
+  logoi: string;
+  phonei: string;
+  ideai: string;
+  requesti:string;
+  datei: string;
+  emaili: string;
+};
 
 const USERS: user[] = [
   {
@@ -152,22 +162,71 @@ const INDUSTRIES: industry[] = [
     requests: 'Request description',
     dates: '17th September 2021',
     emails: 'info@kcc.com'
-  }
+  }]
+// -------------------------------------------------
+const INVESTORS: investor[] = [
+  {
+    namei: 'Venture Capital A',
+    logoi: 'f/f3/Flag_of_Russia.svg',
+    phonei: '0209487332',
+    ideai: 'Idea description',
+    requesti: 'Request description',
+    datei: '12th May 2022',
+    emaili: 'info@venturecapital.com',
+    
+  },
+  
+  {
+    namei: 'Venture Capital B',
+    logoi: 'f/f3/Flag_of_Russia.svg',
+    phonei: '0209487332',
+    ideai: 'Idea description',
+    requesti: 'Request description',
+    datei: '12th May 2022',
+    emaili: 'info@venturecapital.com',
+    
+  },
 
+  {
+    namei: 'Venture Capital C',
+    logoi: 'f/f3/Flag_of_Russia.svg',
+    phonei: '0209487332',
+    ideai: 'Idea description',
+    requesti: 'Request description',
+    datei: '12th May 2022',
+    emaili: 'info@venturecapital.com',
+    
+  },
+
+  {
+    namei: 'Venture Capital D',
+    logoi: 'f/f3/Flag_of_Russia.svg',
+    phonei: '0209487332',
+    ideai: 'Idea description',
+    requesti: 'Request description',
+    datei: '12th May 2022',
+    emaili: 'info@venturecapital.com',
+    
+  },
 
 ];
 
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
-})
 
-export class AppComponent {
+
+
+
+@Component({
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.scss']
+})
+export class AdminComponent implements OnInit {
+
   title = 'vumbuka';
   active = 'top';
   incubators = INCUBATORS;
+  investors =INVESTORS;
   industries = INDUSTRIES;
   users = USERS;
   closeResult = '';
@@ -195,10 +254,7 @@ export class AppComponent {
 
   
 
+  ngOnInit(): void {
+  }
+
 }
-
-
-
-
-
-

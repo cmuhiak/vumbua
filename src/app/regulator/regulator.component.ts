@@ -1,7 +1,5 @@
-import { Component, Directive, EventEmitter, Input, Output, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-
-
 
 interface user {
   namee: string;
@@ -13,14 +11,14 @@ interface user {
   emaill: string;
 }
 // ---------------------------------------------------------
-interface incubator {
-  name: string;
-  logo: string;
-  phone: string;
-  idea: string;
-  request:string;
-  date: string;
-  email: string;
+interface regulator {
+  namer: string;
+  logor: string;
+  phoner: string;
+  idear: string;
+  requestr:string;
+  dater: string;
+  emailr: string;
 };
 // -------------------------------------
 interface industry {
@@ -74,43 +72,16 @@ const USERS: user[] = [
 
 
 // -------------------------------------------------
-const INCUBATORS: incubator[] = [
+const REGULATORS: regulator[] = [
+  
   {
-    name: 'iHub',
-    logo: 'f/f3/Flag_of_Russia.svg',
-    phone: '0709487332',
-    idea: 'Idea description',
-    request: 'Request description',
-    date: '12th May 2022',
-    email: 'info@ihub.com',
-    
-  },
-  {
-    name: 'iBiz',
-    logo: 'c/cf/Flag_of_Canada.svg',
-    phone: '0729928373',
-    idea: 'Idea description',
-    request: 'Request description',
-    date: '18th May 2021',
-    email: 'ibiz@strathmore.edu'
-  },
-  {
-    name: 'Nailab',
-    logo: 'a/a4/Flag_of_the_United_States.svg',
-    phone: '07297336662',
-    idea: 'Idea description',
-    request: 'Request description',
-    date: '2nd July 2021',
-    email: 'info@nailab.com'
-  },
-  {
-    name: 'Afrilab',
-    logo: 'f/fa/Flag_of_the_People%27s_Republic_of_China.svg',
-    phone: '0701973633',
-    idea: 'Idea description',
-    request: 'Request description',
-    date: '11th November 2021',
-    email: 'info@afrilab.com'
+    namer: 'KEBS',
+    logor: 'c/cf/Flag_of_Canada.svg',
+    phoner: '020 211120373',
+    idear: 'Idea description',
+    requestr: 'Bidhaa Bora project',
+    dater: '18th May 2021',
+    emailr: 'kebs@gok.co.ke'
   }
 ];
 
@@ -148,7 +119,7 @@ const INDUSTRIES: industry[] = [
     names: 'KCC',
     logos: 'f/fa/Flag_of_the_People%27s_Republic_of_China.svg',
     phones: '0709837533',
-    ideas: 'Idea description',
+    ideas: 'Smart milk collection project',
     requests: 'Request description',
     dates: '17th September 2021',
     emails: 'info@kcc.com'
@@ -159,15 +130,15 @@ const INDUSTRIES: industry[] = [
 
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-regulator',
+  templateUrl: './regulator.component.html',
+  styleUrls: ['./regulator.component.scss']
 })
+export class RegulatorComponent implements OnInit {
 
-export class AppComponent {
   title = 'vumbuka';
   active = 'top';
-  incubators = INCUBATORS;
+  regulators = REGULATORS;
   industries = INDUSTRIES;
   users = USERS;
   closeResult = '';
@@ -193,12 +164,9 @@ export class AppComponent {
     }
   }
 
-  
+
+
+  ngOnInit(): void {
+  }
 
 }
-
-
-
-
-
-

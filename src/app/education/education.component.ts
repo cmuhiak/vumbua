@@ -1,7 +1,5 @@
-import { Component, Directive, EventEmitter, Input, Output, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-
-
 
 interface user {
   namee: string;
@@ -13,14 +11,14 @@ interface user {
   emaill: string;
 }
 // ---------------------------------------------------------
-interface incubator {
-  name: string;
-  logo: string;
-  phone: string;
-  idea: string;
-  request:string;
-  date: string;
-  email: string;
+interface educator {
+  namet: string;
+  logot: string;
+  phonet: string;
+  ideat: string;
+  requestt:string;
+  datet: string;
+  emailt: string;
 };
 // -------------------------------------
 interface industry {
@@ -74,43 +72,16 @@ const USERS: user[] = [
 
 
 // -------------------------------------------------
-const INCUBATORS: incubator[] = [
+const EDUCATORS: educator[] = [
+  
   {
-    name: 'iHub',
-    logo: 'f/f3/Flag_of_Russia.svg',
-    phone: '0709487332',
-    idea: 'Idea description',
-    request: 'Request description',
-    date: '12th May 2022',
-    email: 'info@ihub.com',
-    
-  },
-  {
-    name: 'iBiz',
-    logo: 'c/cf/Flag_of_Canada.svg',
-    phone: '0729928373',
-    idea: 'Idea description',
-    request: 'Request description',
-    date: '18th May 2021',
-    email: 'ibiz@strathmore.edu'
-  },
-  {
-    name: 'Nailab',
-    logo: 'a/a4/Flag_of_the_United_States.svg',
-    phone: '07297336662',
-    idea: 'Idea description',
-    request: 'Request description',
-    date: '2nd July 2021',
-    email: 'info@nailab.com'
-  },
-  {
-    name: 'Afrilab',
-    logo: 'f/fa/Flag_of_the_People%27s_Republic_of_China.svg',
-    phone: '0701973633',
-    idea: 'Idea description',
-    request: 'Request description',
-    date: '11th November 2021',
-    email: 'info@afrilab.com'
+    namet: 'Strathmore University',
+    logot: 'c/cf/Flag_of_Canada.svg',
+    phonet: '020 29928373',
+    ideat: 'Idea description',
+    requestt: 'Macheo project',
+    datet: '27th March 2021',
+    emailt: 'info@strathmore.edu'
   }
 ];
 
@@ -148,7 +119,7 @@ const INDUSTRIES: industry[] = [
     names: 'KCC',
     logos: 'f/fa/Flag_of_the_People%27s_Republic_of_China.svg',
     phones: '0709837533',
-    ideas: 'Idea description',
+    ideas: 'Smart milk collection project',
     requests: 'Request description',
     dates: '17th September 2021',
     emails: 'info@kcc.com'
@@ -157,17 +128,16 @@ const INDUSTRIES: industry[] = [
 
 ];
 
-
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-education',
+  templateUrl: './education.component.html',
+  styleUrls: ['./education.component.scss']
 })
+export class EducationComponent implements OnInit {
 
-export class AppComponent {
   title = 'vumbuka';
   active = 'top';
-  incubators = INCUBATORS;
+  educators = EDUCATORS;
   industries = INDUSTRIES;
   users = USERS;
   closeResult = '';
@@ -193,12 +163,9 @@ export class AppComponent {
     }
   }
 
-  
+
+
+  ngOnInit(): void {
+  }
 
 }
-
-
-
-
-
-

@@ -1,0 +1,585 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Vumbua</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <li class="nav-item">
+          <a routerLink="/home" class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/home/NeedHelp?" class="nav-link" href="#">News feeds</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Postings
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+            <li><a class="dropdown-item" href="#">Personal' Postings</a></li>
+            <li><a class="dropdown-item" href="#">Incubator's' Postings</a></li>
+            <li><a class="dropdown-item" href="#">Industries' Postings</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">All Postings</a></li>
+          </ul>
+        </li>
+        
+      </ul>
+      
+      <div class="md-form mt-0">
+        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+      </div>
+        <button class="btn btn-primary me-3" type="submit">Search</button>
+        <div>
+          <nav class="navbar navbar-expand-sm navbar-light bg-dark">
+            <div class="container-fluid">
+              <ul class="navbar-nav"> 
+                <!-- Avatar -->
+                 <li mdbDropdown class="nav-item dropdown">
+                  <a
+                  class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                  >
+                  <a style="color: dark;">. .</a>
+                    <!-- <img
+                      src="https://worldywcacouncil.org/wp-content/uploads/2015/04/speaker-3-v2.jpg"
+                      class="rounded-circle"
+                      height="32"
+                      alt=""
+                      loading="lazy"
+                    />  <br> -->
+                    <a class="text-muted" style="font-size: 2;">ABSA Bank</a>
+                  </a>
+                  <ul mdbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li>
+                      <a class="dropdown-item" href="#">My profile</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Settings</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#" routerLink="/home">Logout</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        
+    
+      
+
+      
+    </div>
+  </div>
+</nav>
+
+<div class="d-flex">
+    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-pills" orientation="vertical" >
+      
+
+<li ngbNavItem="Industry">
+    <a ngbNavLink>
+      <div class="ms-3">
+        <p class="fw-bold mb-1">Hello, Welcome ABSA Kenya!</p>
+        <p class="text-muted mb-0">Click here to navigate</p>
+      </div>
+    </a>
+    <ng-template ngbNavContent>
+      <div>
+        
+
+<nav ngbNav #nav="ngbNav" class="nav-tabs">
+<ng-container ngbNavItem>
+  <a ngbNavLink>ABSA Bank Profile</a>
+  <ng-template ngbNavContent>
+        <div>
+
+
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Industry Name</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Email Address</th>
+                <th scope="col">Status</th>
+                <th scope="col">View</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let industry of industries; index as k">
+                <th scope="row">{{ k + 1 }}</th>
+                <td>
+                  
+                  {{ industry.names }}
+                </td>
+                <td>{{ industry.phones }}</td>
+                <td>{{ industry.emails }}</td>
+                <td>
+                  <button type="button" class="btn btn-primary">
+                     <span class="badge badge-light">Active</span>
+                  </button>
+                </td>
+                <td> 
+                 
+                    <ng-template #content let-modal>
+                      <div class="modal-header">
+                        <h4 class="modal-title" id="modal-basic-title">ABSA Bank Profile</h4>
+                        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form>
+
+                          <img
+                          src="data:image/png;base64,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"
+                          class="rounded mx-auto d-block"
+                          height="92"
+                          alt=""
+                          loading="lazy"
+                        /> <br>
+                        <label>Company logo</label>
+                          <button class="btn btn-outline-primary" type="button">Upload</button>
+                        <br><br>
+
+                          <div class="mb-3">
+                            <label for="dateOfBirth">Date of Registration</label>
+                            <div class="input-group">
+                              <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                              
+                              <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+                            </div>
+                            <div>
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th scope="col"> </th>
+                                  <th scope="col">Item</th>
+                                  <th scope="col">Details</th>
+                                  
+
+                                </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <!--tr *ngFor="let item of items; index as k">
+                                  <th scope="row">{{ k + 1 }}</th-->
+                                <td>ABSA Bank</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          </div>
+                        </form>
+
+                        <label for="formFileMultiple" class="form-label">Attach - Certificate of Incorporation</label>
+                        <div class="input-group mb-3">
+                        <input class="form-control" type="file" id="formFileMultiple" multiple />
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-primary" type="button">Upload</button>
+                        </div> <br>
+                      </div>
+
+                        <label for="formFileMultiple" class="form-label">Attach - KRA Pin Certificate</label>
+                        <div class="input-group mb-3">
+                          <input class="form-control" type="file" id="formFileMultiple" multiple />
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-primary" type="button">Upload</button>
+                          </div> <br>
+                        </div>
+
+                        <label for="formFileMultiple" class="form-label">Attach - Company Profile</label>
+                        <div class="input-group mb-3">
+                          <input class="form-control" type="file" id="formFileMultiple" multiple />
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-primary" type="button">Upload</button>
+                          </div> <br>
+                        </div>
+
+                        <label for="formTextMultiple" class="form-label">Add Website link</label>
+                        <div class="input-group mb-3">
+                          <input class="form-control" type="text" id="formTextMultiple" multiple>
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-primary" type="button">Add</button>
+                          </div> <br>
+                        </div> <br>
+
+                        <div class="row">
+                          <div class="col">
+                            <div ngbDropdown class="d-inline-block">
+                              <button type="button" class="btn btn-outline-primary" id="dropdownForm1" ngbDropdownToggle>Industry/Sector of Operations</button>
+                              <div ngbDropdownMenu aria-labelledby="dropdownForm1">
+                                <form class="px-4 py-3">
+                                                              
+                                  <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                                    <label class="form-check-label" for="dropdownCheck">
+                                    Banking/Financial
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                                    <label class="form-check-label" for="dropdownCheck">
+                                      IT/Computing
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                                    <label class="form-check-label" for="dropdownCheck">
+                                      Higher Education
+                                    </label>
+                                  </div>
+
+                                  <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                                    <label class="form-check-label" for="dropdownCheck">
+                                      Business Consulting
+                                    </label>
+                                  </div>
+
+                                 
+                                </form>
+
+
+                              </div>
+                            </div>
+                          </div>
+                        </div> <br>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-primary" (click)="modal.close('Save click')">Edit</button><br>
+                        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+                      </div>
+                    </ng-template>
+                    
+                    <button class="btn btn-lg btn-outline-primary" (click)="open(content)">view</button>
+
+                    
+              </td>
+              </tr>
+              </tbody>
+            </table>
+
+        </div>
+  </ng-template>
+</ng-container>
+<ng-container ngbNavItem>
+  <a ngbNavLink>ABSA Bank Adopted Ideas</a>
+  <ng-template ngbNavContent>
+    
+    <div>
+
+
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">No.</th>
+          <th scope="col">Industry Name</th>
+          <th scope="col">Idea Description</th>
+          <th scope="col">Date of Submission</th>
+          <th scope="col">Email Address</th>
+          <th scope="col">Status</th>
+          <th scope="col">View</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users; index as k">
+          <th scope="row">{{ k + 1 }}</th>
+          <td>{{ user.namee }}</td>
+          <td>{{ user.ideaa }}</td>
+          <td>{{ user.datee }}</td>
+          <td>{{ user.emaill }}</td>
+          <td>
+            <button type="button" class="btn btn-primary">
+               <span class="badge badge-light">Approved</span>
+            </button>
+          </td>
+          <td> 
+           
+              <ng-template #content let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title">Idea Details</h4>
+                  <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="mb-3">
+                      <label for="dateOfBirth">Date of Submission</label>
+                      <div class="input-group">
+                        <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                        
+                        <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+                        
+                      </div>
+                      
+                      <div>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th scope="col"> </th>
+                            <th scope="col">Item</th>
+                            <th scope="col">Details</th>
+                            
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <!--tr *ngFor="let item of items; index as k">
+                            <th scope="row">{{ k + 1 }}</th-->
+                          <td>ABSA Bank</td>
+                          <td>xxx</td>
+                          <td>xxx</td>
+                          <td>xxx</td>
+                          <td>xxx</td>
+                          <td>xxx</td>
+                          <td>xxx</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div>
+
+
+                        <p>
+                          <button type="button" class="btn btn-outline-primary" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed"
+                            aria-controls="collapseExample">
+                            Idea Description
+                          </button>
+                        </p>
+                        <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+                          <div class="card">
+                            <div class="card-body">
+                              There once was a king named Midas who did a good deed for a Satyr. And he was then granted a wish by Dionysus, the god of wine.
+
+For his wish, Midas asked that whatever he touched would turn to gold. Despite Dionysus’ efforts to prevent it, Midas pleaded that this was a fantastic wish, and so, it was bestowed.
+                            </div>
+                          </div>
+                        </div>
+
+                        <p>
+                          <button type="button" class="btn btn-outline-primary" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed"
+                            aria-controls="collapseExample">
+                            Comment
+                          </button>
+                        </p>
+                        <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+                          <div class="card">
+                            <div class="card-body">
+                              <textarea>Write you comment here</textarea><br>
+                              <button type="button" class="btn btn-outline-primary" (click)="modal.close('Save click')">Submit Comment</button>
+                            </div>
+                          </div>
+                        </div>
+
+                        <label for="formFileMultiple" class="form-label">Supporting documents & attachements</label>
+                        <div class="input-group mb-3">
+                          <input class="form-control" type="file" id="formFileMultiple" multiple />
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-primary" type="button">Upload</button>
+                          </div> <br>
+                        </div>
+
+                        
+
+                        
+                      </div>
+                    </div>
+                    </div>
+                  </form>
+                </div>
+                
+                <div class="modal-footer">
+                  <div ngbDropdown>
+                    <button type="button" class="btn btn-outline-primary" id="dropdownConfig" ngbDropdownToggle>Like the idea?</button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownConfig">
+                      <button ngbDropdownItem>Accept/Adopt</button>
+                      <button ngbDropdownItem>Not interested</button>
+                      <button ngbDropdownItem>Request for Reviews</button>
+                    </div>
+                  </div>
+
+                  <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Submit</button>
+                </div>
+              </ng-template>
+              
+              <button class="btn btn-lg btn-outline-primary" (click)="open(content)">view</button>
+
+              
+        </td>
+        </tr>
+        </tbody>
+      </table>
+
+  </div>
+
+
+
+  </ng-template>
+</ng-container>
+<ng-container ngbNavItem>
+  <a ngbNavLink>ABSA Bank Requests</a>
+  <ng-template ngbNavContent>
+    
+
+    <div>
+
+
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">No.</th>
+          <th scope="col">Industry Name</th>
+          <th scope="col">Request Description</th>
+          <th scope="col">Date of Submission</th>
+          <th scope="col">Email Address</th>
+          <th scope="col">Status</th>
+          <th scope="col">View</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let industry of industries; index as k">
+          <th scope="row">{{ k + 1 }}</th>
+          <td>{{ industry.names }}</td>
+          <td>{{ industry.requests }}</td>
+          <td>{{ industry.dates }}</td>
+          <td>{{ industry.emails }}</td>
+          <td>
+            <button type="button" class="btn btn-primary">
+               <span class="badge badge-light">Active</span>
+            </button>
+          </td>
+          <td> 
+           
+              <ng-template #content let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title">ABSA Bank Request</h4>
+                  <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="mb-3">
+                      <label for="dateOfBirth">Date of Submission</label>
+                      <div class="input-group">
+                        <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                        
+                        <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+                        
+                      </div>
+                      
+                      <div>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th scope="col"> </th>
+                            <th scope="col">Item</th>
+                            <th scope="col">Details</th>
+                            
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <!--tr *ngFor="let item of items; index as k">
+                            <th scope="row">{{ k + 1 }}</th-->
+                          <td>ABSA Bank</td>
+                          <td>xxx</td>
+                          <td>xxx</td>
+                          <td>xxx</td>
+                          <td>xxx</td>
+                          <td>xxx</td>
+                          <td>xxx</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div>
+
+
+                        <p>
+                          <button type="button" class="btn btn-outline-primary" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed"
+                            aria-controls="collapseExample">
+                            Request Description
+                          </button>
+                        </p>
+                        <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+                          <div class="card">
+                            <div class="card-body">
+                              There once was a king named Midas who did a good deed for a Satyr. And he was then granted a wish by Dionysus, the god of wine.
+
+For his wish, Midas asked that whatever he touched would turn to gold. Despite Dionysus’ efforts to prevent it, Midas pleaded that this was a fantastic wish, and so, it was bestowed.
+                            </div>
+                          </div>
+                        </div>
+
+                        <p>
+                          <button type="button" class="btn btn-outline-primary" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed"
+                            aria-controls="collapseExample">
+                            Comment
+                          </button>
+                        </p>
+                        <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+                          <div class="card">
+                            <div class="card-body">
+                              <textarea>Write you comment here</textarea><br>
+                              <button type="button" class="btn btn-outline-primary" (click)="modal.close('Save click')">Submit Comment</button>
+                            </div>
+                          </div>
+                        </div>
+
+                        <label for="formFileMultiple" class="form-label">Supporting documents & attachements</label>
+                        <div class="input-group mb-3">
+                          <input class="form-control" type="file" id="formFileMultiple" multiple />
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-primary" type="button">Upload</button>
+                          </div> <br>
+                        </div>
+
+                        
+
+                        
+                      </div>
+                    </div>
+                    </div>
+                  </form>
+                </div>
+                
+                <div class="modal-footer">
+                 
+                  <button type="button" class="btn btn-outline-primary" (click)="modal.close('Save click')">Edit</button>
+                  <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Submit</button>
+                </div>
+              </ng-template>
+              
+              <button class="btn btn-lg btn-outline-primary" (click)="open(content)">view</button>
+
+              
+        </td>
+        </tr>
+        </tbody>
+      </table>
+
+  </div>
+
+
+
+  </ng-template>
+</ng-container>
+</nav>
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>
+      </div>
+    </ng-template>
+  </li>
+</ul>
+  
+<div [ngbNavOutlet]="nav" class="ms-4"></div>
+</div>
+<app-footer></app-footer>
+

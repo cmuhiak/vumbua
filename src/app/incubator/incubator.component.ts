@@ -1,7 +1,5 @@
-import { Component, Directive, EventEmitter, Input, Output, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-
-
 
 interface user {
   namee: string;
@@ -75,42 +73,15 @@ const USERS: user[] = [
 
 // -------------------------------------------------
 const INCUBATORS: incubator[] = [
+  
   {
-    name: 'iHub',
-    logo: 'f/f3/Flag_of_Russia.svg',
-    phone: '0709487332',
-    idea: 'Idea description',
-    request: 'Request description',
-    date: '12th May 2022',
-    email: 'info@ihub.com',
-    
-  },
-  {
-    name: 'iBiz',
+    name: '@iBizAfrica',
     logo: 'c/cf/Flag_of_Canada.svg',
     phone: '0729928373',
     idea: 'Idea description',
-    request: 'Request description',
+    request: 'Smart dada project',
     date: '18th May 2021',
     email: 'ibiz@strathmore.edu'
-  },
-  {
-    name: 'Nailab',
-    logo: 'a/a4/Flag_of_the_United_States.svg',
-    phone: '07297336662',
-    idea: 'Idea description',
-    request: 'Request description',
-    date: '2nd July 2021',
-    email: 'info@nailab.com'
-  },
-  {
-    name: 'Afrilab',
-    logo: 'f/fa/Flag_of_the_People%27s_Republic_of_China.svg',
-    phone: '0701973633',
-    idea: 'Idea description',
-    request: 'Request description',
-    date: '11th November 2021',
-    email: 'info@afrilab.com'
   }
 ];
 
@@ -148,7 +119,7 @@ const INDUSTRIES: industry[] = [
     names: 'KCC',
     logos: 'f/fa/Flag_of_the_People%27s_Republic_of_China.svg',
     phones: '0709837533',
-    ideas: 'Idea description',
+    ideas: 'Smart milk collection project',
     requests: 'Request description',
     dates: '17th September 2021',
     emails: 'info@kcc.com'
@@ -157,14 +128,13 @@ const INDUSTRIES: industry[] = [
 
 ];
 
-
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-incubator',
+  templateUrl: './incubator.component.html',
+  styleUrls: ['./incubator.component.scss']
 })
+export class IncubatorComponent implements OnInit {
 
-export class AppComponent {
   title = 'vumbuka';
   active = 'top';
   incubators = INCUBATORS;
@@ -193,12 +163,9 @@ export class AppComponent {
     }
   }
 
-  
+
+
+  ngOnInit(): void {
+  }
 
 }
-
-
-
-
-
-

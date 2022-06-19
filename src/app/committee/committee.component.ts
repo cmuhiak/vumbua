@@ -1,7 +1,5 @@
-import { Component, Directive, EventEmitter, Input, Output, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-
-
 
 interface user {
   namee: string;
@@ -31,6 +29,16 @@ interface industry {
   requests:string;
   dates: string;
   emails: string;
+};
+// ---------------------------
+interface committee {
+  namem: string;
+  photom: string;
+  phonem: string;
+  ideam: string;
+  requestm:string;
+  datem: string;
+  emailm: string;
 }
 
 const USERS: user[] = [
@@ -71,7 +79,20 @@ const USERS: user[] = [
     emaill: 'kim.joe@vumbua.com',
   }
 ];
+// -----------------------------------------------
+const COMMITTEES: committee[] = [
+ 
+  {
+    namem: 'Joyce Mend',
+    photom: 'f/f3/Flag_of_Russia.svg',
+    phonem: '0709009032',
+    ideam: 'Idea description',
+    requestm: 'Request description',
+    datem: '12th May 2022',
+    emailm: 'joyce.mend@vumbua.com',
+  }
 
+];
 
 // -------------------------------------------------
 const INCUBATORS: incubator[] = [
@@ -157,31 +178,31 @@ const INDUSTRIES: industry[] = [
 
 ];
 
-
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-committee',
+  templateUrl: './committee.component.html',
+  styleUrls: ['./committee.component.scss']
 })
+export class CommitteeComponent implements OnInit {
 
-export class AppComponent {
   title = 'vumbuka';
   active = 'top';
   incubators = INCUBATORS;
   industries = INDUSTRIES;
   users = USERS;
+  committees =COMMITTEES;
   closeResult = '';
   public isCollapsed = false;
 
   constructor(private modalService: NgbModal) {}
 
-  open(content: any) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
+  //open(content: any) {
+    //this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+     // this.closeResult = `Closed with: ${result}`;
+    //}, (reason) => {
+      //this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+   // });
+  //}
 
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
@@ -193,12 +214,11 @@ export class AppComponent {
     }
   }
 
-  
+  open(content:any) {
+    this.modalService.open(content, { scrollable: true });
+  }
+
+  ngOnInit(): void {
+  }
 
 }
-
-
-
-
-
-
